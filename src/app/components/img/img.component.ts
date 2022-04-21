@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
@@ -12,7 +11,17 @@ export class ImgComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input()
-  img: string = 'Valor inicial';
+  @Input() img: string = '';
+  @Output() loaded = new EventEmitter<string>();
+  imgNotFound: string = "./assets/images/image-not-found-300x225.jpg";
+
+  imgError() {
+    this.img = this.imgNotFound;
+  }
+
+  imgLoaded() {
+    console.log('loaded - child');
+    this.loaded.emit(this.img);
+  }
 
 }

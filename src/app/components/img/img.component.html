@@ -1,5 +1,5 @@
 <p>img works!</p>
-<img *ngIf="img; else elseImg" width="200px" [src]="img" alt="">
+<img *ngIf="img; else elseImg" width="200px" [src]="img" (error)="imgError()" (load)="imgLoaded()" >
 <ng-template #elseImg>
-  <img width="200" src="./assets/images/image-not-found-300x225.jpg">
+  <img width="200" [src]="imgNotFound">
 </ng-template>
