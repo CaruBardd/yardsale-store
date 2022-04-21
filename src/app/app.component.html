@@ -1,6 +1,22 @@
+<!--
+  =========== Código principal
+-->
+
+<app-products></app-products>
+
+<!--
+
+ PARTE DE LAS CLASES DE:
+ Curso de Angular: Componentes y Servicios
+
 <p><input type="text" [(ngModel)]="imgParent" /></p>
 <button (click)="toggleImg()">Toggle Img</button>
 <p>{{ showImg }}</p>
-<app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
-<hr>
-<app-product [productInList]="product" *ngFor="let product of products"></app-product>
+<app-img
+  *ngIf="showImg"
+  (loaded)="onLoaded($event)"
+  [img]="imgParent"
+></app-img>
+<hr />
+
+-->

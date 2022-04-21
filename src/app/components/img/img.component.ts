@@ -25,10 +25,12 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // Async - fetch, API, promises
     //runs once time
     console.log('ngOnInit de app-img', '\n Valor de imagen : ', this.img);
+    /* CONTADOR DE EJEMPLO
     this.counterFn = window.setInterval(() => {
       this.counter += 1;
       console.log('running counter');
     }, 1000)
+    */
   }
 
   ngAfterViewInit(): void {
@@ -41,7 +43,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy(): void {
     // Detele component
     console.log('ngOnDestroy de app-img');
-    window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
   }
 
 
