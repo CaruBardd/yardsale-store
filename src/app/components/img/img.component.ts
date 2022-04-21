@@ -17,6 +17,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // Runs before render - during render
     // runs once time for every input change
     console.log('ngOnChanges de app-img', '\n Valor de imagen : ', this.img);
+    console.log('changes', changes);
   }
 
   ngOnInit(): void {
@@ -24,7 +25,10 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // Async - fetch, API, promises
     //runs once time
     console.log('ngOnInit de app-img', '\n Valor de imagen : ', this.img);
-
+    this.counterFn = window.setInterval(() => {
+      this.counter += 1;
+      console.log('running counter');
+    }, 1000)
   }
 
   ngAfterViewInit(): void {
@@ -37,13 +41,22 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy(): void {
     // Detele component
     console.log('ngOnDestroy de app-img');
+    window.clearInterval(this.counterFn);
   }
 
 
-
-  @Input() img: string = '';
+  img: string = '';
+  @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
   imgNotFound: string = "./assets/images/image-not-found-300x225.jpg";
+  counter = 0;
+  counterFn: number | undefined;
+
+  @Input('img') set changeImg(newImg: string) {
+    this.img = newImg;
+    console.log('change just img : ', this.img);
+    // Puedo aplicar un código
+  }
 
   imgError() {
     this.img = this.imgNotFound;
