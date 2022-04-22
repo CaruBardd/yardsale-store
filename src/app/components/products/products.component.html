@@ -12,7 +12,7 @@
 </p>
 <div class="products--grid">
   <app-product
-    [productInList]="product"
+    [product]="product"
     *ngFor="let product of products"
     (addedProduct)="onAddToShoppingCart($event)"
   ></app-product>

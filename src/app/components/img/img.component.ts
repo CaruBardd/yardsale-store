@@ -54,7 +54,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   counter = 0;
   counterFn: number | undefined;
 
-  @Input('img') set changeImg(newImg: string) {
+  @Input() set changeImg(newImg: string) {
     this.img = newImg;
     console.log('change just img : ', this.img);
     // Puedo aplicar un código
