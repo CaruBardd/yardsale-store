@@ -1,6 +1,11 @@
+import { Rating } from "./rating.model";
+
 export interface Product {
   id: string;
-  name: string;
+  title: string;
+  description: string;
+  category: string;
   price: number;
-  img: string;
+  image: string;
+  rating: Rating;
 }
